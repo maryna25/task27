@@ -14,8 +14,16 @@ public:
 
 	static Volume& set(int pow =0)
 	{
-		static Volume volume(pow);
-		return volume;
+		if (pow > 0)
+		{
+			static Volume volume(pow);
+			return volume;
+		}
+		else
+		{
+			static Volume volume(0);
+			return volume;
+		}
 	}
 
 	void increase(int plusVolume=1)
@@ -25,7 +33,8 @@ public:
 
 	void decrease(int minusVolume=1)
 	{
-		power -= minusVolume;
+		if (power-minusVolume >=0) power -= minusVolume;
+		else power = 0;
 	}
 
     int get() const 

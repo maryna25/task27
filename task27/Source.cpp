@@ -34,6 +34,8 @@ TEST_CASE("Checking decrease()")
 	REQUIRE(v.get() == 23);
 	v.decrease(3);
 	REQUIRE(v.get() == 20);
+	v.decrease(40);
+	REQUIRE(v.get() == 0);
 }
 
 int main(int argc, char* argv[])
@@ -53,6 +55,7 @@ int main(int argc, char* argv[])
 
 	getchar();
 	return 0;*/
+
 	int result = Catch::Session().run(argc, argv);
 	getchar();
 	return result;
